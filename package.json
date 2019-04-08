@@ -1,0 +1,24 @@
+{
+  "name": "TDD-with-Jest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "jest": "^24.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbetangJoseph/TDD-with-Jest.git"
+  },
+  "keywords": [],
+  "author": "Abetang Joseph",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbetangJoseph/TDD-with-Jest/issues"
+  },
+  "homepage": "https://github.com/AbetangJoseph/TDD-with-Jest#readme"
+}
