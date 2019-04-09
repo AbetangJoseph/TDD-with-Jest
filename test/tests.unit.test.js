@@ -32,3 +32,20 @@ describe("Adding Two Numbers", () => {
     expect(addTwoNumbers(1)).toMatch(/insert a second arguement/);
   });
 });
+
+describe("Add An Indefinite Amount Of Numbers", () => {
+  it("should return 'input cannot be empty' if no input", () => {
+    expect(addIndefinite()).toMatch(/input cannot be empty/);
+  });
+  it("should return the same input value if only one input is provided", () => {
+    expect(addIndefinite(10)).toBe(10);
+  });
+  it("should return the same input value if only one input is provided", () => {
+    expect(addIndefinite(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)).toBe(45);
+  });
+  it("should return 'invalid' if non-number type(s) found", () => {
+    expect(addIndefinite(1, 2, 3, 4, "hi", 5)).toMatch(
+      /invalid, only numbers are allowed/
+    );
+  });
+});
