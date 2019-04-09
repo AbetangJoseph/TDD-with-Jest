@@ -66,3 +66,20 @@ describe("Difference Between Two Numbers", () => {
     expect(twoNumbersDiffernce(1)).toMatch(/fill all fields/);
   });
 });
+
+describe("Multiply An Indefinite Amount Of Arguments", () => {
+  it("should return 'input cannot be empty' if no input", () => {
+    expect(multiplyIndifinite()).toMatch(/fill all fields/);
+  });
+  it("should return the same input value if only one input is provided", () => {
+    expect(multiplyIndifinite(10)).toBe(10);
+  });
+  it("should return the same input value if only one input is provided", () => {
+    expect(multiplyIndifinite(1, 2, 3, 4, 5)).toBe(120);
+  });
+  it("should return 'invalid' if non-number type(s) found", () => {
+    expect(multiplyIndifinite(1, 2, 3, 4, "hi", 5)).toMatch(
+      /invalid, only numbers are allowed/
+    );
+  });
+});
