@@ -17,11 +17,18 @@ describe("Adding Two Numbers", () => {
     expect(addTwoNumbers(0.1, 0.2)).toBeCloseTo(0.3);
   });
 
-  it("should return error-message if one parameter is a string", () => {
-    expect(addTwoNumbers("1", 1)).toMatch(/invalid/);
+  it("should return 'invalid inputs, only numbers are allowed' if one argument is a string", () => {
+    expect(addTwoNumbers("1", 1)).toMatch(
+      /invalid input, only numbers are allowed/
+    );
   });
 
-  it("should return error-message if both parameters are strings", () => {
-    expect(addTwoNumbers("1", "1")).toMatch(/invalid/);
+  it("should return 'invalid inputs, only numbers are allowed' if both argument are strings", () => {
+    expect(addTwoNumbers("1", "1")).toMatch(
+      /invalid input, only numbers are allowed/
+    );
+  });
+  it("should return 'insert a second arguement' if only one argument is parsed", () => {
+    expect(addTwoNumbers(1)).toMatch(/insert a second arguement/);
   });
 });
