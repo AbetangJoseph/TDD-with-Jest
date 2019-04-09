@@ -49,3 +49,20 @@ describe("Add An Indefinite Amount Of Numbers", () => {
     );
   });
 });
+
+describe("Difference Between Two Numbers", () => {
+  it("should return 'input cannot be empty' if no input", () => {
+    expect(twoNumbersDiffernce()).toMatch(/fill all fields/);
+  });
+  it("should return 'invalid inputs, only numbers are allowed' if one argument is a string", () => {
+    expect(twoNumbersDiffernce(2, "2")).toMatch(
+      /invalid input, only numbers are allowed/
+    );
+  });
+  it("should return 'invalid inputs, only numbers are allowed' if one argument is a string", () => {
+    expect(twoNumbersDiffernce(3, 2)).toBe(1);
+  });
+  it("should return 'insert a second arguement' if only one argument is parsed", () => {
+    expect(twoNumbersDiffernce(1)).toMatch(/fill all fields/);
+  });
+});

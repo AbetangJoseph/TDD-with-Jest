@@ -1,10 +1,10 @@
-const addTwoNumbers = (a, b) => {
-  if (typeof a == "string" || typeof b == "string") {
+const addTwoNumbers = (num1, num2) => {
+  if (typeof num1 == "string" || typeof num2 == "string") {
     return "invalid input, only numbers are allowed";
-  } else if (a == null || b == null) {
+  } else if (num1 == null || num2 == null) {
     return "insert a second arguement";
   } else {
-    return a + b;
+    return num1 + num2;
   }
 };
 module.exports = addTwoNumbers;
