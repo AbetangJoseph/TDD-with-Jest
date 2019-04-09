@@ -1,5 +1,5 @@
 const {
-  addIndifinte,
+  addIndefinite,
   addTwoNumbers,
   divideTwoNumbers,
   gitHubGetRepo,

@@ -1,4 +1,4 @@
-const addIndifinte = require("./addIndifinte");
+const addIndefinite = require("./addIndefinite");
 const addTwoNumbers = require("./addTwoNumbers");
 const divideTwoNumbers = require("./divideTwoNumbers");
 const gitHubGetRepo = require("./gitHubGetRepo");
@@ -7,7 +7,7 @@ const twoNumbersDiffernce = require("./twoNumbersDiffernce");
 const twoStringsConcat = require("./twoStringsConcat");
 
 module.exports = {
-  addIndifinte,
+  addIndefinite,
   addTwoNumbers,
   divideTwoNumbers,
   gitHubGetRepo,
