@@ -74,12 +74,27 @@ describe("Multiply An Indefinite Amount Of Arguments", () => {
   it("should return the same input value if only one input is provided", () => {
     expect(multiplyIndifinite(10)).toBe(10);
   });
-  it("should return the same input value if only one input is provided", () => {
+  it("should return the sum of indefinite numbers", () => {
     expect(multiplyIndifinite(1, 2, 3, 4, 5)).toBe(120);
   });
   it("should return 'invalid' if non-number type(s) found", () => {
     expect(multiplyIndifinite(1, 2, 3, 4, "hi", 5)).toMatch(
       /invalid, only numbers are allowed/
     );
+  });
+});
+
+describe("First Number Divided By The Second Number.", () => {
+  it("should return 'input cannot be empty' if no input", () => {
+    expect(divideTwoNumbers()).toMatch(/fill all fields/);
+  });
+  it("should return 'invalid inputs, only numbers are allowed' if one argument is a string", () => {
+    expect(divideTwoNumbers(2, "2")).toMatch(/fill all fields/);
+  });
+  it("should return quotient", () => {
+    expect(divideTwoNumbers(4, 2)).toBe(2);
+  });
+  it("should return 'insert a second arguement' if only one argument is parsed", () => {
+    expect(divideTwoNumbers(1)).toMatch(/fill all fields/);
   });
 });
