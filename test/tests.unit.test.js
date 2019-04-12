@@ -101,6 +101,15 @@ describe("First Number Divided By The Second Number.", () => {
 
 describe("Concatenate two strings", () => {
   it("should return 'input cannot be empty' if no input", () => {
-    expect(twoStringsConcat()).toMatch(/fill all fields/);
+    expect(twoStringsConcat()).toMatch(/invalid/);
+  });
+  it("should return 'all fields are required' if only one input available", () => {
+    expect(twoStringsConcat("", "")).toMatch(/both fields are required/);
+  });
+  it("should return 'only letters are allowed' if one or both input are not strings", () => {
+    expect(twoStringsConcat(22, "dd")).toMatch(/only letters are allowed/);
+  });
+  it("should return 'only letters are allowed' if one or both input are not strings", () => {
+    expect(twoStringsConcat("hello", "world")).toBe("hello world");
   });
 });
