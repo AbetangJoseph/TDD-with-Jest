@@ -98,3 +98,9 @@ describe("First Number Divided By The Second Number.", () => {
     expect(divideTwoNumbers(1)).toMatch(/fill all fields/);
   });
 });
+
+describe("Concatenate two strings", () => {
+  it("should return 'input cannot be empty' if no input", () => {
+    expect(twoStringsConcat()).toMatch(/fill all fields/);
+  });
+});
