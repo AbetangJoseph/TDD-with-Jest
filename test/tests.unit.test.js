@@ -10,6 +10,7 @@ const {
   twoStringsConcat
 } = require("../src/allModules");
 
+//FUNCTION TO ADD TWO NUMBERS
 describe("Adding Two Numbers", () => {
   it("should return sum of two Integers", () => {
     expect(addTwoNumbers(1, 1)).toBe(2);
@@ -35,6 +36,7 @@ describe("Adding Two Numbers", () => {
   });
 });
 
+//FUNCTION TO ADD AN INDEFINITE AMOUNT OF NUMBERS
 describe("Add An Indefinite Amount Of Numbers", () => {
   it("should return 'input cannot be empty' if no input", () => {
     expect(addIndefinite()).toMatch(/input cannot be empty/);
@@ -52,6 +54,7 @@ describe("Add An Indefinite Amount Of Numbers", () => {
   });
 });
 
+//FUNCTION TO CALCULATE THE DIFFERENCE BETWEEN TWO NUMBERS
 describe("Difference Between Two Numbers", () => {
   it("should return 'input cannot be empty' if no input", () => {
     expect(twoNumbersDiffernce()).toMatch(/fill all fields/);
@@ -69,6 +72,7 @@ describe("Difference Between Two Numbers", () => {
   });
 });
 
+//FUNCTION TO MULTIPLY AN INDEFINITE AMOUNT OF ARGUMENTS
 describe("Multiply An Indefinite Amount Of Arguments", () => {
   it("should return 'input cannot be empty' if no input", () => {
     expect(multiplyIndifinite()).toMatch(/fill all fields/);
@@ -86,6 +90,7 @@ describe("Multiply An Indefinite Amount Of Arguments", () => {
   });
 });
 
+//FIRST NUMBER DIVIDED BY THE SECOND NUMBER FUNCTION
 describe("First Number Divided By The Second Number.", () => {
   it("should return 'input cannot be empty' if no input", () => {
     expect(divideTwoNumbers()).toMatch(/fill all fields/);
@@ -101,6 +106,7 @@ describe("First Number Divided By The Second Number.", () => {
   });
 });
 
+//CONCATENATE TWO STRINGS FUNCTION
 describe("Concatenate two strings", () => {
   it("should return 'input cannot be empty' if no input", () => {
     expect(twoStringsConcat()).toMatch(/invalid/);
@@ -111,15 +117,53 @@ describe("Concatenate two strings", () => {
   it("should return 'only letters are allowed' if one or both input are not strings", () => {
     expect(twoStringsConcat(22, "dd")).toMatch(/only letters are allowed/);
   });
-  it("should return 'only letters are allowed' if one or both input are not strings", () => {
+  it("should return two strings concatenated", () => {
     expect(twoStringsConcat("hello", "world")).toBe("hello world");
   });
 });
 
+//GITHUB API MOCK CALL WITH AXIOS:GET METHOD
 describe("GitHub API Mock Call", () => {
-  it("should call axios and return an array of repo objects", async () => {
+  it("should call gitHubGetRepo function", async () => {
+    axios.get = jest.fn(() =>
+      Promise.resolve({
+        data: [
+          {
+            id: 152319575,
+            node_id: "MDEwOlJlcG9zaXRvcnkxNTIzMTk1NzU=",
+            name: "my-tutorial-website"
+          },
+          {
+            id: 167033612,
+            node_id: "MDEwOlJlcG9zaXRvcnkxNjcwMzM2MTI=",
+            name: "mydiary"
+          }
+        ]
+      })
+    );
     const repos = await gitHubGetRepo("AbetangJoseph");
-
-    expect(repos.data.map(e => e.name)).toContain("mydiary");
+    expect(repos.data.map(e => e.name)).toBeDefined();
   });
+});
+it("should call axios and loop through returned value to confirm the specific repo name exists", async () => {
+  axios.get = jest.fn(() =>
+    Promise.resolve({
+      data: [
+        {
+          id: 152319575,
+          node_id: "MDEwOlJlcG9zaXRvcnkxNTIzMTk1NzU=",
+          name: "my-tutorial-website"
+        },
+        {
+          id: 167033612,
+          node_id: "MDEwOlJlcG9zaXRvcnkxNjcwMzM2MTI=",
+          name: "mydiary"
+        }
+      ]
+    })
+  );
+  const repos = await gitHubGetRepo("AbetangJoseph");
+  console.log(repos);
+
+  expect(repos.data.map(e => e.name)).toContain("mydiary");
 });
