@@ -1,3 +1,5 @@
+const axios = require("axios");
+
 const {
   addIndefinite,
   addTwoNumbers,
@@ -111,5 +113,13 @@ describe("Concatenate two strings", () => {
   });
   it("should return 'only letters are allowed' if one or both input are not strings", () => {
     expect(twoStringsConcat("hello", "world")).toBe("hello world");
+  });
+});
+
+describe("GitHub API Mock Call", () => {
+  it("should call axios and return an array of repo objects", async () => {
+    const repos = await gitHubGetRepo("AbetangJoseph");
+
+    expect(repos.data.map(e => e.name)).toContain("mydiary");
   });
 });
